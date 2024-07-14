@@ -1,3 +1,4 @@
+'use client'
 import styles from '@/css/GHIBLI.module.css'
 import Image from 'next/image'
 
@@ -11,9 +12,48 @@ import totoro2 from '../../imgs/anime_card/totoro2.png'
 import senAndChihiro_bg from '../../imgs/anime_card/senAndChihiro_bg.png'
 import senAndChihiro from '../../imgs/anime_card/senAndChihiro.png'
 
-import Script from 'next/script'
+import {useEffect} from 'react'
 
 export default function GHIBLI() {
+
+    useEffect(() => {
+                            
+        const $cards = document.getElementsByClassName('GHIBLI_cards__2i47_')
+        const $images = document.getElementsByClassName('GHIBLI_img__VPkY_')
+        const $backgrounds = document.getElementsByClassName('GHIBLI_bg__srk86');
+
+        console.log($cards)
+        console.log($images)
+        console.log($backgrounds)
+
+        const RANGE = 40;
+        const calcValue = (a:number, b:number) => {
+            return (a/b * RANGE - RANGE/2).toFixed(1);
+        };
+        document.addEventListener(
+            'mousemove',
+            (event) => {
+
+                
+
+                const yValue = calcValue(event.y, window.innerHeight);
+                const xValue = calcValue(event.x, window.innerWidth);
+                ($cards[0] as any).style.transform = 'rotateX(' + yValue + 'deg) rotateY(' + xValue + 'deg)';
+            
+                ($images[0] as any).style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)';
+                ($images[1] as any).style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)';
+                ($images[2] as any).style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)';
+                ($images[3] as any).style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)';
+                
+                ($backgrounds[0] as any).style.$backgroundsPosition = (Number(xValue) * .45) + 'px' +  (-yValue * .45) + 'px';
+                ($backgrounds[1] as any).style.$backgroundsPosition = (Number(xValue) * .45) + 'px' +  (-yValue * .45) + 'px';
+                ($backgrounds[2] as any).style.$backgroundsPosition = (Number(xValue) * .45) + 'px' +  (-yValue * .45) + 'px'
+
+            }
+        )  
+    })
+
+
     return (
         <div className={` ${styles.main}`}>
             <div className={` ${styles.cards} `}>
@@ -43,41 +83,6 @@ export default function GHIBLI() {
                     </div>
                 </div>
             </div>
-            <Script strategy='afterInteractive'>
-                {`
-                    
-                    const $cards = document.getElementsByClassName('GHIBLI_cards__2i47_')
-                    const $images = document.getElementsByClassName('GHIBLI_img__VPkY_')
-                    const $backgrounds = document.getElementsByClassName('GHIBLI_bg__srk86');
-
-                    console.log($cards)
-                    console.log($images)
-                    console.log($backgrounds)
-
-                    const RANGE = 40;
-                    const calcValue = (a, b) => {
-                        return (a/b * RANGE - RANGE/2).toFixed(1);
-                    };
-                    document.addEventListener(
-                        'mousemove',
-                        (event) => {
-                            const yValue = calcValue(event.y, window.innerHeight);
-                            const xValue = calcValue(event.x, window.innerWidth);
-                            $cards[0].style.transform = 'rotateX(' + yValue + 'deg) rotateY(' + xValue + 'deg)';
-                        
-                            $images[0].style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)'
-                            $images[1].style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)'
-                            $images[2].style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)'
-                            $images[3].style.transform = 'translateX(' + -xValue + 'px) translateY(' + yValue + 'px)'
-                            
-                            $backgrounds[0].style.$backgroundsPosition = (xValue * .45) + 'px' +  (-yValue * .45) + 'px'
-                            $backgrounds[1].style.$backgroundsPosition = (xValue * .45) + 'px' +  (-yValue * .45) + 'px'
-                            $backgrounds[2].style.$backgroundsPosition = (xValue * .45) + 'px' +  (-yValue * .45) + 'px'
-
-                        }
-                    )                
-                `}
-            </Script>
         </div>
     )
 }
