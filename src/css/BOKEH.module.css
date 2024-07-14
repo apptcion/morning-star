@@ -1,0 +1,6 @@
+.main{
+    overflow : hidden;
+    width : 100vw;
+    height : 100vh;
+    filter:blur(18px)
+}

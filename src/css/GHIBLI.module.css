@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800");
+
+
+
+.main{
+    width : 100vw;
+    height : 100vh;
+    perspective: 1800px;
+    background-color : #907fdf;
+}
+
+.cards{
+    position: relative;
+    margin : auto;
+    top : 50px;
+    display: flex;
+    height : 400px;
+    width : 600px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    min-width: 590px;
+    background-color: white;
+    border-radius : 15px;
+    box-shadow: 0px 10px 20px 20px #0000002b;
+    padding : 30px 35px;
+    perspective: 1800px;
+    text-align: left;
+    transform-origin: 50% 50%;
+    font-family: "Open Sans", sans;
+    transform-style: preserve-3d;
+    transform : rotateX(11deg) rotateY(16.5deg);
+}
+
+.MainTitle{
+    width : 100%;
+    color : black;
+    font-size : 16px;
+    margin-bottom: 6px;
+    transform : translateZ(25px)
+}
+.img {
+    position : relative;
+    height : 90%;
+    width : 80%;
+    top : 50px;
+
+}
+
+.subImg{
+    position : absolute;
+    right : -89px
+}
+
+.bg{
+    position : absolute;
+    top : 200px;
+    width : 104%;
+    height : 104%;
+    inset : -50px;
+    transform-origin: 50% 50%;
+    transform : translateZ(-50px);
+    z-index : 0;
+    filter: blur(5px);
+}
+
+.card{
+    border-radius : 15px;
+    box-shadow: 5px 5px 20px -5px #00000099;
+    display : inline-block;
+    height : 250px;
+    overflow : hidden;
+    perspective: 1200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform : translateZ(35px);
+    transition: transform 200ms ease-out;
+    width: 175px;
+    text-align: center;
+}
+
+.text{
+    position : absolute;
+    bottom : 0px;
+    z-index : 2;
+    width : 100%;
+    height : 70px;
+    align-items: center;
+    background: linear-gradient(to bottom, #00000000 0%, #0000008c 100%);
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title{
+    color : white;
+    font-size : 18px;
+    font-weight: 700;
+    padding : 0 10px;
+    margin-bottom : 3px;
+}

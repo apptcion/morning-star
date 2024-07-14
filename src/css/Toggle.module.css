@@ -1,0 +1,1049 @@
+.main{
+    margin : 0px;
+    width : 100vw;
+    height : 100vh;
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    overflow : hidden;
+}
+
+.canvas{
+    position : absolute;
+    width : 140vw;
+    height : 140vw;
+    top : 50%;
+    left : 50%;
+    border-radius: 100%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient( black 60vw, #f8f8ee, #e1f3fd 100vw);
+}
+
+.NightBg{
+    transition: 0.5s;
+    transform-origin: center;
+}
+
+.DayBg{
+    transition: 0.5s;
+    transform-origin: center;
+    transform: rotate(180deg) translate(50%, 40%);
+}
+
+.mountain_bg{
+    position : absolute;
+    z-index : 0;
+    left : -5%;
+    filter : brightness(120%)
+    
+}
+
+.mountain_cover{
+    width : 100vw;
+    height : 100vh;
+    z-index : 1;
+    opacity: 0.4;
+}
+
+.Day_cover{
+    transition: 1s;
+    background-color: transparent;
+}
+
+.Night_cover{
+    transition: 1s;
+    background-color: black;
+}
+
+.text{
+    text-transform: uppercase;
+    position : absolute;
+    top : calc(40% - 150px - 35px);
+    left : 50%;
+    font-size : 70px;
+    transform : translate(-50%);
+    left : 50%;
+    z-index : 1;
+}
+
+.Day{
+    color : #ffd500;
+}
+
+.Night{
+    color : white;
+}
+
+.toggle_box{
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 80px;
+    width : 550px;
+    height : 300px;
+    background-color : #dde3f1;
+}
+
+.btn{
+    display : none;
+}
+
+.toggle_switch{
+    display : inline-block;
+    width : 500px;
+    height : 160px;
+    position : absolute;
+    top : 50%;
+    left : 25px;
+    transform: translate(0%, -50%);
+    border-radius: 80px;
+    box-shadow : -1px 3px 3px white;
+    background-color : #3b92e1;
+    overflow : hidden;
+}
+
+.shadow_cover{
+    width : 500px;
+    height : 160px;
+    position : absolute;
+    top : 50%;
+    left : 0px;
+    transform : translate(0%, -50%);
+    border-radius: 80px;
+    box-shadow : 0px 3px 10px black inset, -1px 3px 3px white;
+    z-index : 10;
+}
+
+.btn:checked + .toggle_switch>.shadow_cover{
+    box-shadow: 6px 3px 10px rgba(0,0,200,0.5) inset, -1px 3px 3px white;
+    z-index : 11;
+}
+
+.btn:checked + .toggle_switch{
+    background-color: black;
+}
+
+.toggle_btn{
+    transition: 0.5s;
+    position : absolute;
+    top : 15px; /*변수 1 */
+    left : 35px; /*변수 2 */
+    width : 130px;
+    height : 130px;
+    /*background-color : #ffd500;*/
+    
+    border-radius: 100%;
+    box-shadow: 0px 5px 10px rgba(0,0,0,0.7),0px -2px 5px rgba(0,0,0,0.9) inset,4px 2px 3px white inset;
+    z-index : 6;
+
+    animation-name: toSun;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+
+}
+
+/*
+
+    */
+
+@keyframes toSun {
+    0%{
+        background-color : #c2c8d5;
+    }
+
+    100%{
+        background-color : #ffd500;
+    }
+}
+
+.moon_box{
+    position : absolute;
+    top : 0px;
+    width : 130px;
+    height : 130px;
+}
+
+@keyframes toMoon {
+    0%{
+        background-color: #ffd500;
+    }
+
+    100%{
+        background-color: #c2c8d5;
+    }
+}
+
+.btn:checked + .toggle_switch>.toggle_btn{
+    animation-name : toMoon;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    left : calc(500px - 130px - 35px);
+    background-color: #c2c8d5;
+    transition: 0.5s;
+}
+
+.moon{
+    position : absolute;
+    border-radius: 100%;
+    background-color : #949eb2;
+}
+
+.creter1{
+    animation-name : creter1_disappear;
+    animation-duration: 0.15s;
+    animation-fill-mode : forwards;
+}
+
+@keyframes creter1_disappear {
+    0%{
+        top : 25px;
+        left : 62px;
+        width : 21px;
+        height : 21px;
+    }
+
+    100%{
+        top : calc(25px + 10.5px);
+        left : calc(62px + 10.5px);
+        width : 0px;
+        height : 0px;
+    }
+}
+
+@keyframes creter1_appear {
+    0%{
+        top : calc(25px + 10.5px);
+        left : calc(62px + 10.5px);
+        width : 0px;
+        height : 0px;
+    }
+
+    100%{
+        top : 25px;
+        left : 62px;
+        width : 21px;
+        height : 21px;
+    }
+}
+
+.btn:checked + .toggle_switch>.toggle_btn>.moon_box>.creter1{
+    animation-name: creter1_appear;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+    animation-duration: 0.3s;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2) inset;
+}
+
+.creter2{
+    animation-name : creter2_disappear;
+    animation-duration: 0.02s;
+    animation-fill-mode : forwards;
+}
+
+@keyframes creter2_disappear {
+    0%{
+        top : 80px;
+        left : 80px;
+        width : 25px;
+        height : 25px;
+    }
+
+    100%{
+        top : calc(80px + 12.5px);
+        left : calc(80px + 12.5px);
+        width : 0px;
+        height : 0px;
+    }
+}
+
+@keyframes creter2_appear {
+    0%{
+        top : calc(80px + 12.5px);
+        left : calc(80px + 12.5px);
+        width : 0px;
+        height : 0px;
+    }
+
+    100%{
+        top : 80px;
+        left : 80px;
+        width : 25px;
+        height : 25px;
+    }
+}
+
+
+.btn:checked + .toggle_switch>.toggle_btn>.moon_box>.creter2{
+    animation-name : creter2_appear;
+    animation-delay: 0.2s;
+    animation-duration: 0.2s;
+    animation-fill-mode: forwards;
+    box-shadow : -0.5px 1.5px rgba(0,0,0,0.3) inset;  
+}
+
+
+.creter3{
+    animation-name : creter3_disappear;
+    animation-duration: 0.3s;
+    animation-fill-mode : forwards;
+}
+
+@keyframes creter3_disappear {
+    0%{
+        top : 52px;
+        left : 22px;
+        width : 40px;
+        height : 40px;
+    }
+
+    100%{
+        top : calc(52px + 20px);
+        left : calc(22px + 20px);
+        width : 0px;
+        height : 0px;
+    }
+}
+
+@keyframes creter3_appear {
+    0%{
+        top : calc(52px + 20px);
+        left : calc(22px + 20px);
+        width : 0px;
+        height : 0px;
+    }
+
+    100%{
+        top : 52px;
+        left : 22px;
+        width : 40px;
+        height : 40px;
+    }
+}
+
+.btn:checked + .toggle_switch>.toggle_btn>.moon_box>.creter3{
+    animation-name : creter3_appear;
+    animation-duration: 0.9s;
+    animation-delay: 0.3;
+    animation-fill-mode: forwards;
+    box-shadow: 1px 2px 2px rgba(0,0,0,0.3) inset;
+}
+
+.halo_box{
+    transition: 0.5s;
+    position : absolute;
+    width : 600px;
+    height : 600px;
+    top : calc(-220px);
+    left : calc(35px + 65px - 300px);
+}
+
+.btn:checked + .toggle_switch>.halo_box{
+    transition: 0.5s;
+    left : calc(500px - 300px - 105px);
+}
+
+.btn:checked + .toggle_switch>.halo_box>.solar_halo1{
+    transition: 0.5s;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.solar_halo1{
+    transition: 0.5s;
+    z-index : 5;
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    width : 300px;
+    height : 300px;
+    border-radius: 100%;
+    background-color: rgba(255,255,255,0.2);
+}
+
+.solar_halo2{
+    z-index : 4;
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    width : 450px;
+    height : 450px;
+    border-radius: 100%;
+    background-color: rgba(255,255,255,0.1);
+}
+.solar_halo3{
+    z-index : 3;
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    width : 600px;
+    height : 600px;
+    border-radius: 100%;
+    background-color: rgba(255,255,255,0.05);
+}
+
+.cloud_wrap1{
+    animation : cloud_wrap_anime_appear;
+    animation-delay: 0.15s;
+    animation-duration: 0.7s;
+    animation-fill-mode: forwards;
+    height : 160px;
+    width : 430px;
+    position : absolute;
+    left : 70px;
+    top : 185px;
+    z-index : 1;
+}
+
+.btn:checked + .toggle_switch>.cloud_wrap1{
+    top : 0px;
+    animation-name: cloud_wrap_disappear;
+    animation-delay: 0.1s;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+@keyframes cloud_wrap_anime_appear {
+    0%{
+        top : 185px;
+    }
+
+    100%{
+        top : 0px;
+    }
+}
+
+
+@keyframes cloud_wrap_disappear {
+    0%{
+        top : 0px
+    }
+    10%{
+        top : 18px;
+    }
+    20%{
+        top : 36px;
+    }
+    30% {
+        top : 54px;
+    }
+
+    40%{
+        top : 72px;
+    }
+
+    50%{
+        top : 90px;
+    }
+
+    60%{
+        top : 108px;
+    }
+
+    70%{
+        top : 126px;
+    }
+
+    80%{
+        top : 144px;
+    }
+
+    90%{
+        top : 160px;
+    }
+
+    100%{
+        top : calc(185px)
+    }
+}
+
+.cloud1{
+    background-color: #9bc2e6;
+    border-radius: 100%;
+    position : absolute;
+}
+
+.c1_cir1{
+    width : 50px;
+    height : 50px;
+    bottom : -30px;
+    left : -45px;
+}
+
+.c1_cir2{
+    width : 100px;
+    height : 100px;
+    bottom : -50px;
+    left : -30px;
+}
+
+.c1_cir3{
+    width : 100px;
+    height : 100px;
+    bottom : -50px;
+    left : 0px;
+}
+
+.c1_cir4{
+    width : 140px;
+    height : 140px;
+    bottom : -60px;
+    left : 60px;
+}
+
+.c1_cir5{
+    width: 100px;
+    height : 100px;
+    bottom : -35px;
+    left : 150px; 
+}
+
+.c1_cir6{
+    width : 150px;
+    height : 150px;
+    bottom : -50px;
+    left : 200px;
+}
+
+.c1_cir7{
+    width : 120px;
+    height : 120px;
+    bottom : -5px;
+    left : 290px;
+}
+
+.c1_cir8{
+    width : 230px;
+    height : 230px;
+    bottom : 0px;
+    left : 360px;
+}
+
+.cloud_wrap2{
+    top : 0px;
+    animation : cloud_wrap_anime_appear;
+    animation-delay: 0.1s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+    height : 160px;
+    width : 430px;
+    position : absolute;
+    left : 70px;
+    z-index : 2;
+    top : 185px;
+}
+
+.btn:checked + .toggle_switch>.cloud_wrap2{
+    animation-name: cloud_wrap_disappear;
+    animation-delay: 0.05s;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+.cloud2{
+    background-color: white;
+    border-radius: 100%;
+    position : absolute;
+}
+
+.c2_cir1{
+    width : 90px;
+    height : 90px;
+    bottom : -70px;
+    left : -35px;
+}
+
+.c2_cir2{
+    width : 70px;
+    height : 70px;
+    bottom  : -40px;
+    left : 35px;
+}
+
+.c2_cir3{
+    width : 130px;
+    height : 130px;
+    bottom : -90px;
+    left : 80px;
+}
+
+.c2_cir4{
+    width : 100px;
+    height : 100px;
+    bottom : -80px;
+    left : 170px;
+}
+
+.c2_cir5{
+    width : 150px;
+    height : 150px;
+    bottom : -110px;
+    left : 220px;
+}
+
+.c2_cir6{
+    width : 170px;
+    height : 170px; 
+    bottom : -80px;
+    left : 320px;
+}
+
+.c2_cir7{
+    width : 100px;
+    height : 100px;
+    bottom : 30%;
+    left : 380px;
+}
+
+
+.star_box{
+    transition: 0.5s;
+    height : 160px;
+    width : 320px;
+    position : absolute;
+    left : 0px;
+}
+
+
+
+.star{
+    position : absolute;
+    overflow : hidden;
+}
+
+.star_main{
+    position : absolute;
+    width : 90%;
+    height : 90%;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 100%;
+    z-index : 1;
+}
+
+.star_cir1{
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : -50%;
+    left : -50%;
+    background-color: black;
+    border-radius: 100%;
+    z-index : 2;
+}
+
+.star_cir2{
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : -50%;
+    left : 50%;
+    background-color: black;
+    border-radius: 100%;
+    z-index : 2;
+}
+
+.star_cir3{
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 50%;
+    left : -50%;
+    background-color: black;
+    border-radius: 100%;
+    z-index : 2;
+}
+
+.star_cir4{
+    width : 100%;
+    height : 100%;
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    background-color: black;
+    border-radius: 100%;
+    z-index : 2;
+}
+
+.star1{
+    top : 45px;
+    left : 275px;
+}
+
+
+@keyframes star1_appear_reverse {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(720deg);
+        width : 30px;
+        height : 30px;
+    }
+}
+
+@keyframes star1_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(720deg);
+        width : 30px;
+        height : 30px;
+    }
+}
+
+.btn:checked + .toggle_switch>.star_box>.star1{
+    animation-name : star1_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.5s;
+    animation-fill-mode: forwards;
+}
+
+.star2{
+    top : 100px;
+    left : 270px;
+}
+
+@keyframes star2_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 7px;
+        height : 7px;
+    }
+}
+
+
+.btn:checked + .toggle_switch>.star_box>.star2{
+    animation-name: star2_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.star3{
+    top : 120px;
+    left : 240px;
+}
+
+
+@keyframes star3_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 15px;
+        height : 15px;
+    }
+}
+
+
+
+.btn:checked + .toggle_switch>.star_box>.star3{
+    animation-name: star3_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.star4{
+    top : 92px;
+    left : 222px;
+}
+
+
+@keyframes star4_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 4px;
+        height : 4px;
+    }
+}
+
+
+
+.btn:checked + .toggle_switch>.star_box>.star4{
+    animation-name: star4_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.star5{
+    top : 50px;
+    left : 240px;
+}
+
+
+@keyframes star5_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 6px;
+        height : 6px;
+    }
+}
+
+
+
+.btn:checked + .toggle_switch>.star_box>.star5{
+    animation-name: star2_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.1s;
+    animation-fill-mode: forwards;
+}
+
+.star6{
+    top : 25px;
+    left : 160px;
+}
+
+
+@keyframes star6_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 25px;
+        height : 25px;
+    }
+}
+
+
+
+.btn:checked + .toggle_switch>.star_box>.star6{
+    animation-name: star6_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.star7{
+    top : 75px;
+    left : 170px;
+}
+
+
+@keyframes star7_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 9px;
+        height : 9px;
+    }
+}
+
+
+
+.btn:checked + .toggle_switch>.star_box>.star7{
+    animation-name: star7_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.star8{
+    top : 135px;
+    left : 170px;
+}
+
+
+@keyframes star8_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 7px;
+        height : 7px;
+    }
+}
+
+
+
+.btn:checked + .toggle_switch>.star_box>.star8{
+    animation-name: star8_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.star9{
+    top : 55px;
+    left : 110px;
+}
+
+
+@keyframes star9_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 9px;
+        height : 9px;
+    }
+}
+
+
+
+.btn:checked + .toggle_switch>.star_box>.star9{
+    animation-name: star9_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.6s;
+    animation-fill-mode: forwards;
+}
+
+.star10{
+    top : 110px;
+    left : 130px;
+}
+
+
+@keyframes star10_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 7px;
+        height : 7px;
+    }
+}
+
+.btn:checked + .toggle_switch>.star_box>.star10{
+    animation-name: star10_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.2s;
+    animation-fill-mode: forwards;
+}
+
+.star11{
+    top : 80px;
+    left : 60px;
+}
+
+@keyframes star11_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 25px;
+        height : 25px;
+    }
+}
+
+.btn:checked + .toggle_switch>.star_box>.star11{
+    animation-name: star11_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
+}
+
+.star12{
+    top : 35px;
+    left : 50px;
+}
+
+@keyframes star12_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 7px;
+        height : 7px;
+    }
+}
+
+.btn:checked + .toggle_switch>.star_box>.star12{
+    animation-name: star12_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.4s;
+    animation-fill-mode: forwards;
+}
+
+.star13{
+    top : 130px;
+    left : 90px;
+}
+
+@keyframes star13_appear {
+    0% {
+        width : 0px;
+        height : 0px;
+
+    }
+
+    100% {
+        transform: rotate(360deg);
+        width : 5px;
+        height : 5px;
+    }
+}
+
+.btn:checked + .toggle_switch>.star_box>.star13{
+    animation-name: star13_appear;
+    animation-duration: 0.5s;
+    animation-delay: 0.0s;
+    animation-fill-mode: forwards;
+}

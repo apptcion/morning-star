@@ -1,0 +1,61 @@
+.canvas{
+    
+    margin : 7px;
+    border : solid 10px black;
+    z-index : 1;
+    
+}
+
+.colors{
+    position : absolute;
+    z-index : 10;
+    top : 40px;
+    left : 40px;
+    width : 400px;
+    height : 50px;
+    box-shadow: 1px 1px 5px black;
+    display : flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.color{
+    position : relative;
+    width : 40px;
+    height : 40px;
+    box-shadow: 1px 1px 3px black inset;
+    border-radius: 100%;
+}
+
+.red{
+    background-color: red;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.yellow{
+    background-color: yellow;
+}
+
+.green{
+    background-color: green;
+}
+
+.blue{
+    background-color: blue;
+}
+
+.indigo{
+    background-color: indigo;
+}
+
+.purple{
+    background-color: purple;
+}
+
+.black{
+    box-shadow: 1px 1px 3px white inset !important;
+    background-color: black;
+}

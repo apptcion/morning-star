@@ -1,0 +1,61 @@
+.h1{
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    color : #EC0B43
+}
+
+.h1{
+    width : 1000px;
+    height : 700px;
+    font-size : 150px;
+    animation-name: rgb;
+    animation-direction: normal;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+}
+
+.label{
+    width : 100vw;
+    height : 100vh;
+}
+
+.btn{
+    display: none;
+}
+
+.btn:checked + .label>.h1{
+    z-index : 10;
+    content: 'SLAVE';
+}
+
+@keyframes rgb {
+    0%{
+
+        color : #FFF689
+    }
+
+    25%{
+        
+        color : #EC0B43
+    }
+
+    50%{
+        color : #7FEFBD
+    }
+
+    75%{
+
+        color : #FFF689
+    }
+
+    100%{
+        color : #EC0B43
+    }
+}
+
+@keyframes sizeUp {
+    
+}

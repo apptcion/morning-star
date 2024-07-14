@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<style>
+    body{
+        margin : 0px;
+        padding : 0px;
+    }
+    header{
+        width : 100vw;
+        height : 10%;
+    }
+
+    #mainLogo{
+        position : relative;
+        width : fit-content;
+        top : 28px;
+        left : 60px;
+        color :deeppink;
+        font-weight: 700;
+        font-size : 40px;
+    }
+    #search{
+        position : relative;
+        top : 50%;
+        left : 50%;
+        width : 50%;
+        height : 70px;
+        transform: translate(-50%, -50%);
+        background-color : white;
+    }
+
+    #searchKeyword{
+        position : relative;
+        top : 5px;
+        height : 50px;
+        width : 90%;
+        border : solid 4px deeppink;
+        border-radius:  25px;
+    }
+
+    #searchButton{
+        position : relative;
+        top : 7px;
+        left : -70px;
+        color : deeppink;
+        font-size: large;
+        font-weight: 600;
+        background-color : transparent;
+        border : none;
+    }
+
+    #orverflow{
+        width : 50%;
+        height : 100px;
+        overflow-x: scroll;
+    }
+
+    #orverflow::-webkit-scrollbar{
+        width: 0px;
+    }
+    #transText{
+        font-weight: 700;
+        font-size : 40px;
+        color : rgba(200,200,200)
+    }
+
+    #transText:before{
+        position : absolute;
+        content: attr(data-text);
+        color : black;
+        transition: all 0.5s ease-out;
+        overflow-x : hidden;
+        width : 0px;
+        white-space: nowrap;
+    }
+
+    #transText:hover:before{
+        width : 100%;
+    }
+
+
+</style>
+<body>
+    <header>
+        <div id="mainLogo">
+            디미플리
+        </div>
+        <div id="search">
+            <input id="searchKeyword">
+            <button id="searchButton">검색</button>
+        </div>
+        <div id="maemul"></div>
+        <div id="profile"></div>
+        <div id="alarm"></div>
+    </header>
+    <div id="orverflow">
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+        a<br>
+
+    </div>
+    <div data-text="TransForm Text" id="transText">
+        TransForm Text
+    </div>
+</body>
+</html>

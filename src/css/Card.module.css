@@ -1,0 +1,45 @@
+.CardContainer {
+    text-align: center;
+    display : grid;
+    grid-template-rows: 400px 400px 400px;
+    grid-template-columns: 350px 350px 350px;
+    row-gap: 20px;
+    column-gap: 20px;
+  
+  }
+  
+  .MainCard{
+    transform: scale(1);
+    transition: .3s;
+    margin : 70px;
+    display : flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 9px black;
+    border-radius: 10px;
+  }
+  
+  .CardName{
+    height : 49px;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    }
+
+    .link{
+        text-decoration-line: none;
+        color : black;
+      
+    }
+
+  .cardImg{
+    width : 210px;
+    height : 215px;
+    border-radius : 10px 10px 0px 0px;
+  }
+  
+  .MainCard:hover{
+    transform: scale(1.25);
+    transition: .3s;
+  }
+  

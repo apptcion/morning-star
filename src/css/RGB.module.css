@@ -1,0 +1,131 @@
+@keyframes sparkle {
+    from {
+      background-position: 0% 100%;
+    }
+    to {
+      background-position: 200% 100%;
+    }
+}
+
+.main{
+    width : 100vw;
+    height : 100vh;
+    overflow : hidden;
+}
+
+.bg_rgb{
+    position : absolute;
+    top : -2vh;
+    left : -1vh;
+    width : calc(100vw + 5vh);
+    height : calc(100vw + 5vh);
+    display: inline-block;
+    font-family: Helvetica Neue;
+    border-radius: 4px;
+    position: relative;
+}
+
+.bg_b{
+    position : absolute;
+    border-radius: 0px 5px 5px 0px;
+    width : calc(50vw - 1vh);
+    height : 98vh;
+    top : 1vh;
+    right : 1vh;
+    background: black;
+    z-index : 1
+}
+
+.bg_w{
+    position : absolute;
+    border-radius: 5px 0px 0px 5px;
+    width : calc(50vw - 1vh);
+    height : 98vh;
+    top : 1vh;
+    left : 1vh;
+    background:white;
+    z-index : 1;
+}
+.bg_rgb:before{
+    animation: sparkle 4s infinite linear;
+    background: linear-gradient(
+        90deg,
+        #7FEFBD 0%,
+        #FFF689 11%,
+        #EC0B43 22%,
+        #7FEFBD 33%,
+        #FFF689 44%,
+        #EC0B43 55%,
+        #7FEFBD 66%,
+        #FFF689 77%,
+        #EC0B43 88%,
+        #7FEFBD 100%
+    );
+    background-size : 300% 100%;
+    content : '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    filter: blur(3px);
+    z-index : -2;
+    transform: scale(0.99) translateY(3px);
+}
+
+
+.text_w{
+    color : white;
+    text-transform: uppercase;
+    font-size : 130px;
+    position: absolute;
+    top : 50%;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    margin : 0px;
+    z-index : 2;
+}
+
+.text_w::before{
+    content : attr(data-text);
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    line-height: 0.88em;
+    transform: rotateX(180deg);
+    transform-origin: bottom;
+    background : linear-gradient(to top, white 0%, transparent 80%);
+    background-clip: text;
+    color : transparent;
+    z-index : 2;
+}
+
+
+.text_b{
+    color : black;
+    text-transform: uppercase;
+    font-size : 130px;
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform : translate(-50%, -50%);
+    margin : 0px;
+    z-index : 2;
+}
+
+.text_b::before{
+    content : attr(data-text);
+    position : absolute;
+    top : 0px;
+    left : 0px;
+    line-height: 0.88em;
+    transform: rotateX(180deg);
+    transform-origin: bottom;
+    background : linear-gradient(to top, black 0%, transparent 80%);
+    background-clip: text;
+    color : transparent;
+    z-index : 2;
+}
+
+.text::after{
+    animation: rgb 2s;
+}
