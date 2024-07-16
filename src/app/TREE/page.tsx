@@ -32,8 +32,8 @@ export default function TREE(){
                 if(status){ //낮
                     context.fillStyle = "white";
                 }else{
-                    context.fillStyle = "black";
                     context.globalCompositeOperation = 'lighter'
+                    context.fillStyle = "black";
                 }
                 context.rect(0,0,window.innerWidth, window.innerHeight)
                 context.fill()
@@ -69,21 +69,27 @@ export default function TREE(){
 
         const clickHandler = (event : MouseEvent) => {
             if(!drawing) {
+                let startAngle = Math.random()* (10) - 5
                 drawing = true;
                 let Length = Math.random()*(300 - 150 + 1) + 150
 
-                
-                let hue = 'black'
                 if(!status){ //밤
                     console.log("밤")    
                     let hueSource = (maxHue - minHue) * Math.random() + minHue;
 
-                    hue = HslToHex(hueSource, 84, 50)
+                    let hue = HslToHex(hueSource, 84, 50)
+                    drawWithAngle(event.offsetX, window.innerHeight,Length, 90, startAngle,hue ,0)
+                    startAngle = Math.random()* (10) - 5
+                    drawWithAngle(event.offsetX, window.innerHeight,Length, 90, startAngle,hue ,0)
             
+                }else{
+                    console.log("낮")
+                    let hue = 'black'
+                    drawWithAngle(event.offsetX, window.innerHeight,Length, 90, startAngle,hue ,0)
+                    startAngle = Math.random()* (10) - 5
+                    drawWithAngle(event.offsetX, window.innerHeight,Length, 90, startAngle,hue ,0)
                 }
-                let startAngle = Math.random()* (10)
                 
-                drawWithAngle(event.offsetX, window.innerHeight,Length, 90, 0,hue ,0)
             }
         }
 
@@ -103,7 +109,7 @@ export default function TREE(){
                 context.moveTo(posX, posY);
                 context.lineTo(target[0], target[1]);
                 context.stroke();
-        
+                context.closePath()
                 return new Promise<[number, number]>((resolve) => {
                     setTimeout(() => {
                         resolve(drawWithAnimation(target[0], target[1], angle, startAngle, length, tick + 1, endTick,color, durationTime));
@@ -116,10 +122,10 @@ export default function TREE(){
         const drawWithAngle = async (posX: number, posY: number, length: number, angle: number, startAngle: number, color : string,branch: number) => {
 
             let endPoint = await drawWithAnimation(posX, posY, angle, startAngle, length, 1, 60, color ,100);
-       
+            console.log(`drawWithAngle : color - ${color}`)
             branch += 1
             if (branch <= 4) {
-                for(let i = 1; i <= 3; i++){
+                for(let i = 1; i <= 4; i++){
                     let nextAngle = Math.floor(Math.random() * (75 - (-25) + 1));
 
                     let divisionRatio = Math.floor((Math.random() * (0.5) + 0.5)*10)
@@ -132,8 +138,8 @@ export default function TREE(){
 
                     let nextLength = length * ((Math.random() *(0.3) + 0.4))
 
-                    console.log(`posY : ${posY}, endPoint[1] : ${endPoint[1]}`)
-                    console.log(`branch : ${branch} - nextAngle : ${nextAngle}, nextPosY : ${nextPosY}`)
+                    //console.log(`posY : ${posY}, endPoint[1] : ${endPoint[1]}`)
+                    //console.log(`branch : ${branch} - nextAngle : ${nextAngle}, nextPosY : ${nextPosY}`)
                     setTimeout(() => {
                         drawWithAngle(nextPosX, nextPosY, nextLength, nextAngle, angle/2, color ,branch);
                     }, 0);
@@ -145,14 +151,12 @@ export default function TREE(){
         };
         resizeHandler()
 
-
-
         window.addEventListener('resize', resizeHandler)
         canvas.addEventListener('click', clickHandler)
 
         return () => {
             window.removeEventListener('resize', resizeHandler)
-            window.removeEventListener('click', clickHandler)
+            canvas.removeEventListener('click', clickHandler)
         }
 
     },[status])
