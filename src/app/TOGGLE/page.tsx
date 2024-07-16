@@ -1,11 +1,25 @@
 'use client'
 import styles from '../../css/Toggle.module.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import mountain_bg from '../../imgs/toggle_card/2774416_removeBG.svg'
 
+
 export default function Toggle(){
     const [isDay, setTime] = useState(true)
+
+    useEffect(() => {
+        window.addEventListener('keyup', (event)=> {
+            const inputTag =  document.querySelector("input")
+            if(isDay){
+                if(inputTag instanceof HTMLInputElement) inputTag.checked = true
+            }else{
+                if(inputTag instanceof HTMLInputElement) inputTag.checked = false
+            }
+            
+            setTime(!isDay)
+        })   
+    })
 
     return (
         <div className={styles.main}>

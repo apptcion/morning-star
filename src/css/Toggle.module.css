@@ -16,7 +16,7 @@
     left : 50%;
     border-radius: 100%;
     transform: translate(-50%, -50%);
-    background: linear-gradient( black 60vw, #f8f8ee, #e1f3fd 100vw);
+    background: linear-gradient( rgb(18, 20, 59) 60vw, #fff8e7, #c1e6fb 90vw);
 }
 
 .NightBg{
