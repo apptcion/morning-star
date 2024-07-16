@@ -17,7 +17,7 @@ export default function Toggle(){
             <div className={`${styles.canvas} 
                 ${ isDay? styles.DayBg : styles.NightBg}`} >
             </div>
-            <Image alt='' src={mountain_bg} className={`${styles.mountain_bg}`}></Image>
+            {/*<Image alt='' src={mountain_bg} className={`${styles.mountain_bg}`}></Image>*/}
             <div className={`${styles.mountain_cover} 
                 ${isDay? styles.Day_cover: styles.Night_cover}`}>
             </div>

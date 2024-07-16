@@ -115,7 +115,7 @@
                     }
                 
                 })
-                if(X%180 == 0){
+                if(X%120 == 0){
 
                     //let startPoint = Math.floor((Math.random()*10)%4)
         
@@ -130,7 +130,7 @@
                     circles.push({
                         pos : [0,0],
                         vec : [vecX, vecY],
-                        radius : (Math.random()*300),
+                        radius : (Math.random()*250),
                         color : HslToHex(hue, 84, 50)
                     }) 
                 }

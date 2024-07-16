@@ -7,6 +7,7 @@ import bokeh_MainCard from '../imgs/bokeh_card/MainCard.png'
 import light_MainCard from '../imgs/light_card/MainCard.png'
 import draw_MainCard from '../imgs/draw_card/MainCard.png'
 import wave_MainCard from '../imgs/wave_card/MainCard.png'
+import tree_MainCard from '../imgs/tree_card/MainCard.png'
 
 export default function Home() {
   return (
@@ -66,7 +67,18 @@ export default function Home() {
           <span className={styles.CardName}>BOKEH</span>
         </div>
       </a>
-      
+
+      {/* 나무 효과 */}
+      <a href="/TREE" className={` ${styles.link}`}>
+        <div className={` ${styles.MainCard} TREE_CARD`}>
+          <Image src = { tree_MainCard } className={styles.cardImg} alt="TREE"/>
+          <span className={styles.CardName}>TREE</span>
+        </div>
+      </a>
+
+      <h2>
+        IDEA : <a href="https://www.youtube.com/@cmiscm">https://www.youtube.com/@cmiscm</a>
+      </h2>
   </div>
   );
 }

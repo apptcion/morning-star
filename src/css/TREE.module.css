@@ -1,0 +1,122 @@
+.main{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.inputButton{
+    display : none
+}
+
+.toggleWrap{
+    position : absolute;
+    top : 5%;
+    right : 3%;
+    width : 13%;
+    height : 10%;
+    border-radius: 30px;
+    background-color: aliceblue;
+    box-shadow: 1px 1px 10px black;
+    display : flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.label{
+    width : 80%;
+    height : 80%;
+    border-radius: 50px;
+}
+
+.toggle{
+    position : relative;
+    width : 100%;
+    height : 100%;
+    border-radius: 50px;
+    box-shadow: 1px 1px 5px black inset;
+    display : flex;
+    align-items: center;
+
+    
+    animation-name: toMorningToggle;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+.toggleBtn{
+    position : relative;
+    box-shadow: 1px 1px 1px black;
+    left : 5%;
+    width :3.3vw;
+    height : 3.3vw;
+    background-color: #ffd500;
+    border-radius: 100%;
+
+    animation-name: toMorningToggleBtn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+.inputButton:checked + .label>.toggle{
+    animation-name: toNightToggle;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+.inputButton:checked + .label>.toggle>.toggleBtn{
+    animation-name: toNightToggleBtn;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+
+@keyframes toNightToggleBtn {
+    0%{
+        left : 10%;
+        background-color: #ffd500;
+        box-shadow: 1px 1px 1px black;
+    }
+    100%{
+        left : 64%;
+        background-color: rgb(200,200,200);
+        box-shadow: 0px 0px 3px white;
+    }
+}
+
+@keyframes toMorningToggleBtn {
+    0%{
+        left : 64%;
+        background-color: rgb(200,200,200);
+        box-shadow: 0px 0px 3px white;
+    }
+    100%{
+        left : 5%;
+        background-color: #ffd500;
+        box-shadow: 1px 1px 1px black;
+    }
+}
+
+@keyframes toNightToggle {
+    0%{
+        background-color:  skyblue
+    }
+    100%{
+        background-color: black;
+    }
+}
+
+@keyframes toMorningToggle {
+    0%{
+        background-color:  black;
+    }
+    100%{
+        background-color: skyblue;
+    }
+}
+
+.canvas{
+
+}
