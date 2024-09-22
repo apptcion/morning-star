@@ -93,7 +93,7 @@ export default function TREE(){
             }
         }
 
-        const drawWithAnimation = async (posX: number, posY: number, angle: number, startAngle: number, length: number, tick: number, endTick: number, color : string ,durationTime: number = 1000): Promise<[number, number]> => {
+        const drawWithAnimation = async (posX: number, posY: number, angle: number, startAngle: number, length: number, tick: number, endTick: number, color : string ,branch : number,durationTime: number = 1000): Promise<[number, number]> => {
             if (tick > endTick) {
                 context.closePath();
                 drawing = false;
@@ -109,7 +109,17 @@ export default function TREE(){
                 context.moveTo(posX, posY);
                 context.lineTo(target[0], target[1]);
                 context.stroke();
-                context.closePath()
+                ///*
+                context.moveTo(posX, posY);
+                context.lineTo(target[0], target[1]);
+                context.stroke();
+                context.moveTo(posX, posY);
+                context.lineTo(target[0], target[1]);
+                context.stroke();
+                //*/
+
+                
+
                 return new Promise<[number, number]>((resolve) => {
                     setTimeout(() => {
                         resolve(drawWithAnimation(target[0], target[1], angle, startAngle, length, tick + 1, endTick,color, durationTime));
@@ -121,7 +131,7 @@ export default function TREE(){
 
         const drawWithAngle = async (posX: number, posY: number, length: number, angle: number, startAngle: number, color : string,branch: number) => {
 
-            let endPoint = await drawWithAnimation(posX, posY, angle, startAngle, length, 1, 60, color ,100);
+            let endPoint = await drawWithAnimation(posX, posY, angle, startAngle, length, 1, 60, color ,branch,100);
             console.log(`drawWithAngle : color - ${color}`)
             branch += 1
             if (branch <= 4) {

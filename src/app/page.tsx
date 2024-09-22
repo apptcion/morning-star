@@ -8,6 +8,9 @@ import light_MainCard from '../imgs/light_card/MainCard.png'
 import draw_MainCard from '../imgs/draw_card/MainCard.png'
 import wave_MainCard from '../imgs/wave_card/MainCard.png'
 import tree_MainCard from '../imgs/tree_card/MainCard.png'
+import space_MainCard from '../imgs/space_card/MainCard.png'
+import network_MainCard from '../imgs/network_card/MainCard.png'
+import shyPixel_MainCard from '../imgs/shyPixel_card/MainCard.png'
 
 export default function Home() {
   return (
@@ -73,6 +76,30 @@ export default function Home() {
         <div className={` ${styles.MainCard} TREE_CARD`}>
           <Image src = { tree_MainCard } className={styles.cardImg} alt="TREE"/>
           <span className={styles.CardName}>TREE</span>
+        </div>
+      </a>
+
+      {/* 우주 효과 */}
+      <a href="/SPACE" className={` ${styles.link}`}>
+        <div className={` ${styles.MainCard} SPACE_CARD`}>
+          <Image src = { space_MainCard } className={styles.cardImg} alt="SPACE"/>
+          <span className={styles.CardName}>SPACE</span>
+        </div>
+      </a>
+
+     {/* 네트워크 효과 */}
+      <a href="/NETWORK" className={` ${styles.link}`}>
+        <div className={` ${styles.MainCard} NETWORK`}>
+          <Image src = { network_MainCard } className={styles.cardImg} alt="NETWORK"/>
+          <span className={styles.CardName}>NETWORK</span>
+        </div>
+      </a>
+
+      {/* 부끄러운 픽셀 효과 */}
+      <a href="/SHYPIXEL" className={` ${styles.link}`}>
+        <div className={` ${styles.MainCard} SHYPIXEL`}>
+          <Image src = { shyPixel_MainCard } className={styles.cardImg} alt="SHYPIXEL"/>
+          <span className={styles.CardName}>SHYPIXEL</span>
         </div>
       </a>
 
