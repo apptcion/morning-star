@@ -1,3 +1,4 @@
+'use client'
 import styles from '@/css/Card.module.css'
 import Image from 'next/image'
 import anime_MainCard from '../imgs/anime_card/MainCard.png'
@@ -8,11 +9,40 @@ import light_MainCard from '../imgs/light_card/MainCard.png'
 import draw_MainCard from '../imgs/draw_card/MainCard.png'
 import wave_MainCard from '../imgs/wave_card/MainCard.png'
 import tree_MainCard from '../imgs/tree_card/MainCard.png'
-import space_MainCard from '../imgs/space_card/MainCard.png'
 import network_MainCard from '../imgs/network_card/MainCard.png'
 import shyPixel_MainCard from '../imgs/shyPixel_card/MainCard.png'
+import {getCookie, setCookie} from '../js/cookie'
+
+import {useEffect} from 'react'
 
 export default function Home() {
+
+  useEffect(() => {
+    if(getCookie('ticket') === undefined){
+      setCookie('from','http://chess.apptcion.site');
+      console.log("토큰 없음", getCookie('ticket'))
+      location.href = 'https://apptcion.site/filter';
+    }else{
+      fetch('https://apptcion.site/isValid',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          ticket:getCookie('ticket'),
+        })
+      }).then((response) => {
+          if(response.ok) return response.json();
+      }).then((data) => {
+        if(!data){
+          setCookie('from','http://chess.apptcion.site/');
+          location.href = 'https://apptcion.site/filter';
+          console.log("토큰 잘못됨", getCookie('ticket'))
+        }
+      })
+    }
+  })
+
   return (
     <div className={` ${styles.CardContainer} `}>
       {/* 지브리 애니메이션*/}
