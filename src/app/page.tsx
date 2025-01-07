@@ -27,7 +27,7 @@ export default function Home() {
       <a href="/RGB" className={` ${styles.link}`}>
         <div className={` ${styles.MainCard} RGB_CARD`}>
           <Image src = { rgb_MainCard } className={styles.cardImg} alt="RGB"/>
-          <span className={styles.CardName}>RGB</span>
+          <span className={styles.CardName}>SIMPLE RGB</span>
         </div>
       </a>
 
@@ -35,7 +35,7 @@ export default function Home() {
       <a href="/TOGGLE" className={` ${styles.link}`}>
         <div className={` ${styles.MainCard} TOGGLE_CARD`}>
           <Image src = { toggle_MainCard } className={styles.cardImg} alt="TOGGLE"/>
-          <span className={styles.CardName}>TOGGLE</span>
+          <span className={styles.CardName}>TOGGLE BUTTON</span>
         </div>
       </a>
 
@@ -43,7 +43,7 @@ export default function Home() {
       <a href="/LIGHT" className={` ${styles.link}`}>
         <div className={` ${styles.MainCard} LIGHT_CARD`}>
           <Image src = { light_MainCard } className={styles.cardImg} alt="LIGHT"/>
-          <span className={styles.CardName}>LIGHT</span>
+          <span className={styles.CardName}>LIGHT ANIMATION</span>
         </div>
       </a>
       
@@ -79,14 +79,6 @@ export default function Home() {
         </div>
       </a>
 
-      {/* 우주 효과 */}
-      <a href="/SPACE" className={` ${styles.link}`}>
-        <div className={` ${styles.MainCard} SPACE_CARD`}>
-          <Image src = { space_MainCard } className={styles.cardImg} alt="SPACE"/>
-          <span className={styles.CardName}>SPACE</span>
-        </div>
-      </a>
-
      {/* 네트워크 효과 */}
       <a href="/NETWORK" className={` ${styles.link}`}>
         <div className={` ${styles.MainCard} NETWORK`}>
@@ -102,10 +94,6 @@ export default function Home() {
           <span className={styles.CardName}>SHYPIXEL</span>
         </div>
       </a>
-
-      <h2>
-        IDEA : <a href="https://www.youtube.com/@cmiscm">https://www.youtube.com/@cmiscm</a>
-      </h2>
   </div>
   );
 }
