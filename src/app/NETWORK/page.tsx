@@ -82,8 +82,8 @@ export default function Network(){
                 this.r = (Math.random() * 1.5) + 0.5;
 
                 this.v = {
-                    vx : ( Math.random() * 4 ) - 2,
-                    vy : ( Math.random() * 4 ) - 2
+                    vx : ( Math.random() * 3 ) - 1.5,
+                    vy : ( Math.random() * 3 ) - 1.5
                 }
             }
 
@@ -150,7 +150,7 @@ export default function Network(){
 
         }
 
-        let total = 110;
+        let total = 70;
         function createParticles(){
             particles = []
             for(let i = 1; i <= total; i++) {
