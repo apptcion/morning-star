@@ -20,7 +20,7 @@ export default function Eyes(){
 
         const clear = () => {
             if(ctx){
-                ctx.fillStyle = 'gray'
+                ctx.fillStyle = '#f0d6b3'
                 ctx.fillRect(0,0,window.innerWidth,window.innerHeight)
                 ctx.fill()
             }
@@ -64,16 +64,25 @@ export default function Eyes(){
                  Math.sqrt(Math.pow(pupil2[0] - mouse.x,2) + Math.pow(pupil2[1] - mouse.y,2))]
 
                 const maxPupilMove = config.eyeR - window.innerHeight * 0.02;
-                const moveDistance1 = Math.min(maxPupilMove, distance[0]);
-                const moveDistance2 = Math.min(maxPupilMove, distance[1])
 
-                const angle1 = Math.atan2(mouse.y - pupil1[1], mouse.x - pupil1[0])
-                pupil1[0] = pupil1[0] + Math.cos(angle1) * (moveDistance1)
-                pupil1[1] = pupil1[1] + Math.sin(angle1) * (moveDistance1)
+                // 눈 중심과 마우스 사이 거리
+                const fullDistance1 = Math.sqrt(Math.pow(mouse.x - window.innerWidth * 0.4, 2) + Math.pow(mouse.y - window.innerHeight * 0.5, 2));
+                const fullDistance2 = Math.sqrt(Math.pow(mouse.x - window.innerWidth * 0.6, 2) + Math.pow(mouse.y - window.innerHeight * 0.5, 2));
 
-                const angle2 = Math.atan2(mouse.y - pupil2[1], mouse.x - pupil2[0])
-                pupil2[0] = pupil2[0] + Math.cos(angle2) * (moveDistance2)
-                pupil2[1] = pupil2[1] + Math.sin(angle2) * (moveDistance2)
+                const ratio1 = Math.min(1, Math.pow(fullDistance1 / (window.innerWidth * 0.5), 1));
+                const ratio2 = Math.min(1, Math.pow(fullDistance2 / (window.innerWidth * 0.5), 1));
+
+                // 비례 이동
+                const moveDistance1 = maxPupilMove * ratio1;
+                const moveDistance2 = maxPupilMove * ratio2;
+
+                const angle1 = Math.atan2(mouse.y - window.innerHeight * 0.5, mouse.x - window.innerWidth * 0.4);
+                pupil1[0] = window.innerWidth * 0.4 + Math.cos(angle1) * moveDistance1;
+                pupil1[1] = window.innerHeight * 0.5 + Math.sin(angle1) * moveDistance1;
+
+                const angle2 = Math.atan2(mouse.y - window.innerHeight * 0.5, mouse.x - window.innerWidth * 0.6);
+                pupil2[0] = window.innerWidth * 0.6 + Math.cos(angle2) * moveDistance2;
+                pupil2[1] = window.innerHeight * 0.5 + Math.sin(angle2) * moveDistance2;
 
                 ctx.arc(pupil1[0], pupil1[1], window.innerHeight * 0.02, 0, Math.PI*2)
                 ctx.moveTo(pupil2[0], pupil2[1])
@@ -101,6 +110,7 @@ export default function Eyes(){
     return (
         <div className={styles.main}>
             <canvas className={styles.canvas} ref={canvasRef}></canvas>
+            <div className={styles.line}></div>
         </div>
     )
 }
