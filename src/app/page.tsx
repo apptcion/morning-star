@@ -11,37 +11,38 @@ import wave_MainCard from '../imgs/wave_card/MainCard.png'
 import tree_MainCard from '../imgs/tree_card/MainCard.png'
 import network_MainCard from '../imgs/network_card/MainCard.png'
 import shyPixel_MainCard from '../imgs/shyPixel_card/MainCard.png'
+import eyes_MainCard from '../imgs/eyes_card/MainCard.png'
 import {getCookie, setCookie} from '../js/cookie'
 
 import {useEffect} from 'react'
 
 export default function Home() {
 
-  useEffect(() => {
-    if(getCookie('ticket') === undefined){
-      setCookie('from','http://chess.apptcion.site');
-      console.log("토큰 없음", getCookie('ticket'))
-      location.href = 'https://apptcion.site/filter';
-    }else{
-      fetch('https://apptcion.site/isValid',{
-        method:'POST',
-        headers:{
-          'Content-Type':'application/json'
-        },
-        body:JSON.stringify({
-          ticket:getCookie('ticket'),
-        })
-      }).then((response) => {
-          if(response.ok) return response.json();
-      }).then((data) => {
-        if(!data){
-          setCookie('from','http://chess.apptcion.site/');
-          location.href = 'https://apptcion.site/filter';
-          console.log("토큰 잘못됨", getCookie('ticket'))
-        }
-      })
-    }
-  })
+  // useEffect(() => {
+  //   if(getCookie('ticket') === undefined){
+  //     setCookie('from','http://chess.apptcion.site');
+  //     console.log("토큰 없음", getCookie('ticket'))
+  //     location.href = 'https://apptcion.site/filter';
+  //   }else{
+  //     fetch('https://apptcion.site/isValid',{
+  //       method:'POST',
+  //       headers:{
+  //         'Content-Type':'application/json'
+  //       },
+  //       body:JSON.stringify({
+  //         ticket:getCookie('ticket'),
+  //       })
+  //     }).then((response) => {
+  //         if(response.ok) return response.json();
+  //     }).then((data) => {
+  //       if(!data){
+  //         setCookie('from','http://chess.apptcion.site/');
+  //         location.href = 'https://apptcion.site/filter';
+  //         console.log("토큰 잘못됨", getCookie('ticket'))
+  //       }
+  //     })
+  //   }
+  // })
 
   return (
     <div className={` ${styles.CardContainer} `}>
@@ -117,11 +118,18 @@ export default function Home() {
         </div>
       </a>
 
-      {/* 부끄러운 픽셀 효과 */}
+      {/* 도망치는 픽셀 효과 */}
       <a href="/SHYPIXEL" className={` ${styles.link}`}>
         <div className={` ${styles.MainCard} SHYPIXEL`}>
           <Image src = { shyPixel_MainCard } className={styles.cardImg} alt="SHYPIXEL"/>
           <span className={styles.CardName}>SHYPIXEL</span>
+        </div>
+      </a>
+      {/* 부끄러운 픽셀 효과 */}
+      <a href="/EYES" className={` ${styles.link}`}>
+        <div className={` ${styles.MainCard} EYES`}>
+          <Image src = { eyes_MainCard } className={styles.cardImg} alt="EYES"/>
+          <span className={styles.CardName}>EYES</span>
         </div>
       </a>
   </div>
