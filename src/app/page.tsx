@@ -31,31 +31,31 @@ function Card({img, name, link}:{img: StaticImageData, name: string, link: strin
 
 export default function Home() {
 
-  // useEffect(() => {
-  //   if(getCookie('ticket') === undefined){
-  //     setCookie('from','http://chess.apptcion.site');
-  //     console.log("토큰 없음", getCookie('ticket'))
-  //     location.href = 'https://apptcion.site/filter';
-  //   }else{
-  //     fetch('https://apptcion.site/isValid',{
-  //       method:'POST',
-  //       headers:{
-  //         'Content-Type':'application/json'
-  //       },
-  //       body:JSON.stringify({
-  //         ticket:getCookie('ticket'),
-  //       })
-  //     }).then((response) => {
-  //         if(response.ok) return response.json();
-  //     }).then((data) => {
-  //       if(!data){
-  //         setCookie('from','http://chess.apptcion.site/');
-  //         location.href = 'https://apptcion.site/filter';
-  //         console.log("토큰 잘못됨", getCookie('ticket'))
-  //       }
-  //     })
-  //   }
-  // })
+  useEffect(() => {
+    if(getCookie('ticket') === undefined){
+      setCookie('from','http://chess.apptcion.site');
+      console.log("토큰 없음", getCookie('ticket'))
+      location.href = 'https://apptcion.site/filter';
+    }else{
+      fetch('https://apptcion.site/isValid',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json'
+        },
+        body:JSON.stringify({
+          ticket:getCookie('ticket'),
+        })
+      }).then((response) => {
+          if(response.ok) return response.json();
+      }).then((data) => {
+        if(!data){
+          setCookie('from','http://chess.apptcion.site/');
+          location.href = 'https://apptcion.site/filter';
+          console.log("토큰 잘못됨", getCookie('ticket'))
+        }
+      })
+    }
+  })
 
   return (
     <div className={` ${styles.CardContainer} `}>
@@ -91,6 +91,7 @@ export default function Home() {
 
       {/* 부끄러운 픽셀 효과 */}
       <Card img={eyes_MainCard} name="EYES" link="EYES"/>
+
   </div>
   );
 }
